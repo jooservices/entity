@@ -4,7 +4,6 @@
   "type": "library",
   "require": {
     "illuminate/support": "*",
-    "carbondate/carbon": "*",
     "nesbot/carbon": "3.*"
   },
   "autoload": {
