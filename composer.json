@@ -1,4 +1,7 @@
 {
+  "name": "jooservices/entity",
+  "version": "0.5.0",
+  "type": "library",
   "require": {
     "illuminate/support": "*",
     "carbondate/carbon": "*",
