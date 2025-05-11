@@ -1,8 +1,23 @@
 {
   "name": "jooservices/entity",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "type": "library",
+  "authors": [
+    {
+      "name": "Viet Vu",
+      "email": "jooservices@gmail.com",
+      "homepage": "https://jooservices.com",
+      "role": "Developer"
+    },
+    {
+      "name": "Jordi Boggiano",
+      "email": "j.boggiano@seld.be",
+      "homepage": "https://seld.be",
+      "role": "Developer"
+    }
+  ],
   "require": {
+    "php": "8.4",
     "illuminate/support": "*",
     "nesbot/carbon": "3.*"
   },
