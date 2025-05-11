@@ -5,7 +5,7 @@
   "require": {
     "illuminate/support": "*",
     "carbondate/carbon": "*",
-    "nesbot/carbon": "*"
+    "nesbot/carbon": "3.*"
   },
   "autoload": {
     "psr-4": {
