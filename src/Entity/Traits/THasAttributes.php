@@ -22,17 +22,52 @@ trait THasAttributes
 
         if (is_array($oData)) {
             $this->data = $this->loadFromArray($oData);
+
+            return;
         }
+
+        if (is_object($oData)) {
+            $this->data = $this->loadFromObject($oData);
+
+            return;
+        }
+
+        $this->data = $oData;
     }
 
     private function loadFromArray($oData): stdClass
     {
         foreach ($oData as $key => $value) {
-            $this->loadedKeys[$key] = true;
             $this->data->{$key} = $this->loadSubEntity($key, $value);
+            $this->loadedKey($key);
         }
 
         return $this->data;
+    }
+
+    private function loadFromObject($oData)
+    {
+        $object = new \ReflectionObject($oData);
+        $properties = $object->getProperties(
+            \ReflectionProperty::IS_PRIVATE
+            | \ReflectionProperty::IS_PROTECTED
+            | \ReflectionProperty::IS_PUBLIC
+        );
+
+        foreach ($properties as $property) {
+            $key = $property->getName();
+            $value = $property->getValue($oData);
+
+            $this->data->{$key} = $this->loadSubEntity($key, $value);
+            $this->loadedKey($key);
+        }
+
+        return $this->data;
+    }
+
+    private function loadedKey(string $key, bool $success = true)
+    {
+        $this->loadedKeys[$key] = $success;
     }
 
     public function getLoadedKeys(): array
@@ -69,7 +104,7 @@ trait THasAttributes
             return $this->{$methodName}();
         }
 
-        return  $this->castAttribute($name, $this->data->{$name} ?? $default);
+        return $this->castAttribute($name, $this->data->{$name} ?? $default);
     }
 
     public function __get($name): mixed

@@ -8,7 +8,6 @@ abstract class AbstractBaseEntity
 {
     use THasAttributes;
 
-
     protected mixed $data;
 
     public function __construct(protected $oData = null)
