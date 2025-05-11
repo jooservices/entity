@@ -1,0 +1,17 @@
+{
+  "require": {
+    "illuminate/support": "*",
+    "carbondate/carbon": "*",
+    "nesbot/carbon": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "JOOservices\\": "src/",
+      "Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^12.1",
+    "fakerphp/faker": "^1.24"
+  }
+}
