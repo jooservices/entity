@@ -1,0 +1,32 @@
+{
+  "name": "jooservices/entity",
+  "description": "General base entity class",
+  "type": "library",
+  "version": "0.5.0",
+  "homepage": "https://jooservices.com",
+  "authors": [
+    {
+      "name": "Viet Vu",
+      "email": "jooservices@gmail.com",
+      "homepage": "https://jooservices.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "JOOservices\\Entity\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^8.0",
+    "illuminate/support": "*",
+    "nesbot/carbon": "^3.9"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "squizlabs/php_codesniffer": "^3.13",
+    "phpstan/phpstan": "^2.1",
+    "phpmd/phpmd": "^2.15",
+    "friendsofphp/php-cs-fixer": "^3.75"
+  }
+}

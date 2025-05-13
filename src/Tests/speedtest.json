@@ -1,0 +1,55 @@
+{
+  "type": "result",
+  "timestamp": "2025-05-13T06:08:56Z",
+  "ping": {
+    "jitter": 1.264,
+    "latency": 14.195,
+    "low": 11.987,
+    "high": 15.626
+  },
+  "download": {
+    "bandwidth": 603953,
+    "bytes": 5046076,
+    "elapsed": 8419,
+    "latency": {
+      "iqm": 543.688,
+      "low": 21.460,
+      "high": 1136.037,
+      "jitter": 73.822
+    }
+  },
+  "upload": {
+    "bandwidth": 10112234,
+    "bytes": 145163930,
+    "elapsed": 14998,
+    "latency": {
+      "iqm": 29.413,
+      "low": 8.234,
+      "high": 186.276,
+      "jitter": 16.759
+    }
+  },
+  "packetLoss": 0,
+  "isp": "FPT Telecom",
+  "interface": {
+    "internalIp": "192.168.188.103",
+    "name": "en0",
+    "macAddr": "CA:A0:25:8A:51:FC",
+    "isVpn": false,
+    "externalIp": "42.116.205.252"
+  },
+  "server": {
+    "id": 18250,
+    "host": "hcmspeedtest.cmctelecom.vn",
+    "port": 8080,
+    "name": "CMC Telecom",
+    "location": "Ho Chi Minh",
+    "country": "Vietnam",
+    "ip": "101.99.59.5"
+  },
+  "result": {
+    "id": "14881844-bc46-4f4a-9e82-a7149fa8c81e",
+    "url": "https://www.speedtest.net/result/c/14881844-bc46-4f4a-9e82-a7149fa8c81e",
+    "persisted": true
+  }
+}
