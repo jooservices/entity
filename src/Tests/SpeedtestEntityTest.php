@@ -22,7 +22,8 @@ class SpeedtestEntityTest extends TestCase
         $entity = SpeedtestEntity::transform(
             json_decode(
                 file_get_contents('./speedtest.json'),
-                false, 512,
+                false,
+                512,
                 JSON_THROW_ON_ERROR
             )
         );

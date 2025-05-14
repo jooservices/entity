@@ -16,6 +16,9 @@ trait THasCasting
             return null;
         }
 
+        /**
+         * Cast to another Entity class
+         */
         $castType = $this->getCastType($attribute);
 
         if (class_exists($castType)) {
