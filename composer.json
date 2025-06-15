@@ -1,8 +1,7 @@
 {
   "name": "jooservices/entity",
-
   "type": "library",
-
+  "version": "0.5.1",
   "authors": [
     {
       "name": "Viet Vu",
