@@ -11,9 +11,7 @@ class BaseEntityTest extends TestCase
     public function testEntity(): void
     {
         $keyValue = $this->faker->word;
-        $entity = new TestEntity([
-            'key' => $keyValue,
-        ]);
+        $entity = new TestEntity(['key' => $keyValue,]);
 
         $this->assertEquals($keyValue, $entity->key);
         $this->assertArrayHasKey('key', $entity->getLoadedKeys());
@@ -35,8 +33,7 @@ class BaseEntityTest extends TestCase
         $this->assertEquals('world', $entity->subEntity->hello);
     }
 
-    public function testCasting()
-
+    public function testCasting(): void
     {
         $keyValue = $this->faker->word;
         $entity = new TestEntity([
@@ -48,5 +45,6 @@ class BaseEntityTest extends TestCase
         ]);
 
         $this->assertInstanceOf(Carbon::class, $entity->createdAt);
+        $this->assertEquals($keyValue, $entity->key);
     }
 }

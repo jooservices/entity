@@ -6,7 +6,7 @@ trait THasSubEntity
 {
     protected array $subEntities = [];
 
-    protected function loadSubEntity(string $key, mixed $value)
+    protected function loadSubEntity(string $key, mixed $value): mixed
     {
         if (!isset($this->subEntities[$key])) {
             return $value;

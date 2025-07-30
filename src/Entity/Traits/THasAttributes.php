@@ -10,32 +10,47 @@ trait THasAttributes
     use THasSubEntity;
     use THasCasting;
 
+    /**
+     * Keys that have been loaded
+     * @var array
+     */
     protected array $loadedKeys = [];
 
-    protected function initData($oData): void
+    /**
+     * Initialize entity data
+     * @param mixed $oData
+     */
+    protected function initData(mixed $oData): void
     {
+        $this->loadedKeys = [];
         $this->data = new stdClass();
 
-        if (is_null($oData)) {
-            return;
-        }
-
-        if (is_array($oData)) {
+        if ($oData === null) {
+            $this->data = $this->loadFromNull();
+        } elseif (is_array($oData)) {
             $this->data = $this->loadFromArray($oData);
-
-            return;
-        }
-
-        if (is_object($oData)) {
+        } elseif (is_object($oData)) {
             $this->data = $this->loadFromObject($oData);
-
-            return;
+        } else {
+            $this->data = $oData;
         }
-
-        $this->data = $oData;
     }
 
-    private function loadFromArray($oData): stdClass
+    /**
+     * Load from null value
+     * @return stdClass
+     */
+    private function loadFromNull(): stdClass
+    {
+        return new stdClass();
+    }
+
+    /**
+     * Load from array
+     * @param array $oData
+     * @return stdClass
+     */
+    private function loadFromArray(array $oData): stdClass
     {
         foreach ($oData as $key => $value) {
             $this->data->{$key} = $this->loadSubEntity($key, $value);
@@ -45,7 +60,12 @@ trait THasAttributes
         return $this->data;
     }
 
-    private function loadFromObject($oData)
+    /**
+     * Load from object
+     * @param object $oData
+     * @return stdClass
+     */
+    private function loadFromObject(object $oData): stdClass
     {
         $object = new \ReflectionObject($oData);
         $properties = $object->getProperties(
@@ -65,7 +85,7 @@ trait THasAttributes
         return $this->data;
     }
 
-    private function loadedKey(string $key, bool $success = true)
+    private function loadedKey(string $key, bool $success = true): void
     {
         $this->loadedKeys[$key] = $success;
     }
@@ -92,7 +112,7 @@ trait THasAttributes
         return $this;
     }
 
-    public function get(string $name, $default = null): mixed
+    public function get(string $name, mixed $default = null): mixed
     {
         $methodName = Str::studly($name);
         if (method_exists($this, $methodName)) {
@@ -107,7 +127,7 @@ trait THasAttributes
         return $this->castAttribute($name, $this->data->{$name} ?? $default);
     }
 
-    public function __get($name): mixed
+    public function __get(string $name): mixed
     {
         return $this->get($name);
     }

@@ -8,7 +8,7 @@ trait THasCasting
 {
     protected array $casts = [];
 
-    protected function getCastType(string $key)
+    protected function getCastType(string $key): ?string
     {
         return $this->casts[$key] ?? null;
     }
@@ -16,7 +16,7 @@ trait THasCasting
     protected function castAttribute(string $key, mixed $value): mixed
     {
         if (is_null($value)) {
-            return $value;
+            return null;
         }
 
         return match ($this->getCastType($key)) {

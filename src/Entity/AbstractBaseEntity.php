@@ -4,13 +4,25 @@ namespace JOOservices\Entity;
 
 use JOOservices\Entity\Traits\THasAttributes;
 
+/**
+ * Class AbstractBaseEntity
+ * @package JOOservices\Entity
+ */
 abstract class AbstractBaseEntity
 {
     use THasAttributes;
 
-    protected mixed $data;
+    /**
+     * Processed data for the entity.
+     * @var mixed
+     */
+    private mixed $data;
 
-    public function __construct(protected $oData = null)
+    /**
+     * AbstractBaseEntity constructor.
+     * @param mixed|null $oData
+     */
+    public function __construct(protected mixed $oData = null)
     {
         $this->initData($this->oData);
     }
